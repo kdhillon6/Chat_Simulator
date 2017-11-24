@@ -7,7 +7,7 @@ redDot.src = './assets/reddot.jpg';
 
 
 class Map{
-	constructor(rows, cols){
+	constructor(rows, cols, ctx){
 		this.rows = rows;
 		this.cols = cols;
 		this.tileSize = 30;
@@ -15,7 +15,8 @@ class Map{
 		for(var i = 0; i < this.rows; i++){
 			this.grid[i] = new Array(this.cols);
 		}
-    }
+		this.ctx = ctx;
+  }
 
     init(){
         var counter = 0;
@@ -31,19 +32,19 @@ class Map{
 
     draw(){
 			console.log("Drawing:");
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        this.ctx.clearRect(0, 0, canvas.width, canvas.height);
         //userMove(John, myMap);
         //userMove(Sally, myMap);
         //userMove(Debbie, myMap);
         for(var i = 0; i < this.rows; i++){
             for(var j = 0; j < this.cols; j++){
                 if (this.grid[i][j] == 0){
-                    ctx.drawImage(greenSq,j*this.tileSize, i*this.tileSize, this.tileSize, this.tileSize);
+                    this.ctx.drawImage(greenSq,j*this.tileSize, i*this.tileSize, this.tileSize, this.tileSize);
                 }else if (this.grid[i][j] == 1){
-                    ctx.drawImage(redDot, j*this.tileSize, i*this.tileSize, this.tileSize, this.tileSize);
+                    this.ctx.drawImage(redDot, j*this.tileSize, i*this.tileSize, this.tileSize, this.tileSize);
                 }else{
-                    ctx.fillStyle = 'red';
-                    ctx.fillRect(j*this.tileSize, i*this.tileSize, this.tileSize, this.tileSize);
+                    this.ctx.fillStyle = 'red';
+                    this.ctx.fillRect(j*this.tileSize, i*this.tileSize, this.tileSize, this.tileSize);
                 }
             }
         }

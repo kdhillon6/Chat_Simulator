@@ -103,6 +103,9 @@ function initMap(Map){
 function draw(Map){
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	//initMap(myMap);	
+	userMove(John, myMap);
+	userMove(Sally, myMap);
+	userMove(Debbie, myMap);
 
 	for(var i = 0; i < myMap.rows; i++){
 		for(var j = 0; j < myMap.cols; j++){
@@ -140,7 +143,8 @@ userMove(John, myMap);
 userMove(Sally, myMap);
 userMove(Debbie, myMap);
 draw(myMap); 
-window.setInterval(draw, 500);
+
+window.setInterval(function (){draw()}, 500);
 /*userMove(John, myMap);
 userMove(Sally, myMap);
 userMove(Debbie, myMap);

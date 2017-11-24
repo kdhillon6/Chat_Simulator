@@ -1,13 +1,9 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
-var greenSq = new Image();
-var orangeSq = new Image();
-var redDot = new Image();
+
 var userArray = new Array();
 var userIdCounter = 0;
-greenSq.src = 'greenpic.png';
-orangeSq.src = 'orangepic.png';
-redDot.src = 'reddot.jpg';
+
 
 
 /*
@@ -29,8 +25,12 @@ function initZone(x, y, num,){
 
 
 var gameMap = new Map(26,52);
+gameMap.init();
 var John = new User(gameMap);
 var Sally = new User(gameMap);
 var Debbie = new User(gameMap);
-gameMap.init();
+//gameMap.init();
 window.setInterval(gameMap.draw(), 500);
+window.setInterval(John.randomMove(gameMap),500);
+window.setInterval(Sally.randomMove(gameMap),500);
+window.setInterval(Debbie.randomMove(gameMap),500);

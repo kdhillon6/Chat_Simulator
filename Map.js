@@ -1,3 +1,11 @@
+var greenSq = new Image();
+var orangeSq = new Image();
+var redDot = new Image();
+greenSq.src = '/assets/greenpic.png';
+orangeSq.src = '/asssets/orangepic.png';
+redDot.src = '/assets/reddot.jpg';
+
+
 class Map{
 	constructor(rows, cols){
 		this.rows = rows;

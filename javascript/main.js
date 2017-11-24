@@ -34,10 +34,10 @@ var Debbie = new User(gameMap);
 //So apprentlly it has to be in window.onload and then setinterval has to be in clouser
 // SO function () { out function !!!}
 window.onload = function() {
-  let player1 = setInterval(function(){ John.randomMove(gameMap); }  ,300);
-  let player2 = setInterval( function() {Sally.randomMove(gameMap); } ,300);
-  let player3 = setInterval( function() {Debbie.randomMove(gameMap); } ,300);
-  let draw = setInterval(function() { gameMap.draw(); }  , 400);
+  let player1 = setInterval(function(){ John.randomMove(gameMap); }  ,100);
+  let player2 = setInterval( function() {Sally.randomMove(gameMap); } ,100);
+  let player3 = setInterval( function() {Debbie.randomMove(gameMap); } ,100);
+  let draw = setInterval(function() { gameMap.draw(); }  , 200);
 
 }
 

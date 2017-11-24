@@ -1,9 +1,9 @@
 var greenSq = new Image();
 var orangeSq = new Image();
 var redDot = new Image();
-greenSq.src = '/assets/greenpic.png';
-orangeSq.src = '/asssets/orangepic.png';
-redDot.src = '/assets/reddot.jpg';
+greenSq.src = './assets/greenpic.png';
+orangeSq.src = './assets/orangepic.png';
+redDot.src = './assets/reddot.jpg';
 
 
 class Map{
@@ -20,9 +20,9 @@ class Map{
     init(){
         var counter = 0;
         for(var i = 0; i < this.rows; i++){
-            for(var j = 0; j < this.cols; j++){	
+            for(var j = 0; j < this.cols; j++){
                 this.grid[i][j] = 0;
-                counter++;			
+                counter++;
             }
         }
         canvas.width = this.tileSize * this.grid[0].length;
@@ -30,6 +30,7 @@ class Map{
     }
 
     draw(){
+			console.log("Drawing:");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         //userMove(John, myMap);
         //userMove(Sally, myMap);
@@ -44,7 +45,7 @@ class Map{
                     ctx.fillStyle = 'red';
                     ctx.fillRect(j*this.tileSize, i*this.tileSize, this.tileSize, this.tileSize);
                 }
-            }    
+            }
         }
     }
 }

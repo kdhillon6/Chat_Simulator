@@ -1,28 +1,12 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
-var greenSq = new Image();
-var orangeSq = new Image();
-var redDot = new Image();
+
 var userArray = new Array();
 var userIdCounter = 0;
-greenSq.src = 'greenpic.png';
-orangeSq.src = 'orangepic.png';
-redDot.src = 'reddot.jpg';
 
 
-class Map{
-	constructor(rows, cols){
-		//document.body.appendChild(canvas);
-		this.rows = rows;
-		this.cols = cols;
-		this.tileSize = 30;
-		this.grid = new Array(this.rows);
-		for(var i = 0; i < this.rows; i++){
-			this.grid[i] = new Array(this.cols);
-		}
-	}
-}
 
+/*
 //How to reference zones from Map.grid?
 class Zone{
 	constructor(locationX, locationY){
@@ -32,73 +16,22 @@ class Zone{
 		this.convoState = false;
 	}
 }
-
-class User{
-	constructor(){
-		this.id = userIdCounter++;
-		this.location = [Math.floor(Math.random()*10), Math.floor(Math.random()*10)];
-		//userArray.slice(this);
-		console.log(this.location);
-		console.log(this.id);
-	}
-}
-
-//Movement function for users. uses RNG for grid movement
-function userMove(User, Map){
-	var moveVal = Math.random() * 100;
-	var oldY = User.location[0];
-	var oldX = User.location[1];
-
-	if(moveVal % 2 == 0){
-		//no movement
-		return
-	}
-	else if(moveVal < 25){
-		if (User.location[0] - 1 > 0 && User.location[0] - 1 < Map.cols){
-			//move left one spot
-			User.location[0] -= 1;
-		}
-	}
-	else if(moveVal >= 25 && moveVal < 50){
-		if (User.location[0] + 1 > 0 && User.location[0] + 1 < Map.cols){
-			//move right one spot
-			User.location[0] += 1;
-		}
-	}
-	else if(moveVal >= 50 && moveVal < 75){
-		if (User.location[1] - 1 > 0 && User.location[1] - 1 < Map.rows){
-			//move down one spot
-			User.location[1] -= 1;
-		}
-		
-	}else{
-		if (User.location[1] + 1 > 0 && User.location[1] + 1 < Map.rows){	
-			//move up one spot
-			User.location[1] += 1;
-		}
-	}
-	Map.grid[User.location[0]][User.location[1]] = 1;
-	Map.grid[oldY][oldX] = 0;
-}
-
 //Zones -- Maybe abandon this idea
 function initZone(x, y, num,){
 	document.write("Not yet implemented")
-}
+}*/
 
-//Initializes map by creating values for grid
-function initMap(Map){
-	var counter = 0;
-	for(var i = 0; i < myMap.rows; i++){
-		for(var j = 0; j < myMap.cols; j++){	
-			myMap.grid[i][j] = 0;
-			counter++;			
-		}
-	}
-	canvas.width = myMap.tileSize * myMap.grid[0].length;
-	canvas.height = myMap.tileSize * myMap.grid.length;
-}
 
+
+
+var gameMap = new Map(26,52);
+gameMap.init();
+var John = new User(gameMap);
+var Sally = new User(gameMap);
+var Debbie = new User(gameMap);
+
+
+<<<<<<< HEAD
 //Draw rectangles for grid
 function draw(Map){
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -166,3 +99,20 @@ userMove(Debbie, myMap);
 draw(myMap);
 
 */
+=======
+//So apprentlly it has to be in window.onload and then setinterval has to be in clouser
+// SO function () { out function !!!}
+window.onload = function() {
+  let player1 = setInterval(function(){ John.randomMove(gameMap); }  ,300);
+  let player2 = setInterval( function() {Sally.randomMove(gameMap); } ,300);
+  let player3 = setInterval( function() {Debbie.randomMove(gameMap); } ,300);
+  let draw = setInterval(function() { gameMap.draw(); }  , 400);
+
+}
+
+
+
+
+
+// //gameMap.init();
+>>>>>>> 95f6080fa3bfadf0455066f8a4820d2960bc4ddf

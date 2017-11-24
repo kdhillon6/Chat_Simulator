@@ -37,7 +37,7 @@ window.onload = function() {
   let player1 = setInterval(function(){ John.randomMove(gameMap); }  ,100);
   let player2 = setInterval( function() {Sally.randomMove(gameMap); } ,100);
   let player3 = setInterval( function() {Debbie.randomMove(gameMap); } ,100);
-  let draw = setInterval(function() { gameMap.draw(); }  , 200);
+  let draw = setInterval(function() { gameMap.draw(); }  , 110);
 
 }
 

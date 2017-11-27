@@ -24,7 +24,7 @@ function initZone(x, y, num,){
 
 
 
-var gameMap = new Map(26,52, ctx);
+var gameMap = new Map(31,38, ctx);
 gameMap.init();
 var John = new User(gameMap);
 var Sally = new User(gameMap);

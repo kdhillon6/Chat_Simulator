@@ -1,9 +1,9 @@
 var greenSq = new Image();
 var orangeSq = new Image();
 var redDot = new Image();
-greenSq.src = './assets/greenpic.png';
+greenSq.src = './assets/greenweave1.png';
 orangeSq.src = './assets/orangepic.png';
-redDot.src = './assets/reddot.jpg';
+redDot.src = './assets/reddot2.png';
 
 
 class Map{
@@ -33,9 +33,6 @@ class Map{
     draw(){
 			console.log("Drawing:");
         this.ctx.clearRect(0, 0, canvas.width, canvas.height);
-        //userMove(John, myMap);
-        //userMove(Sally, myMap);
-        //userMove(Debbie, myMap);
         for(var i = 0; i < this.rows; i++){
             for(var j = 0; j < this.cols; j++){
                 if (this.grid[i][j] == 0){
